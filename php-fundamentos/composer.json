@@ -1,0 +1,22 @@
+{
+  "name": "msarmor/msarmor3",
+  "autoload": {
+    "psr-4": {
+      "Text\\": "src/"
+    },
+    "files": [
+      "src/helpers.php",
+      "src/helpers2.php"
+    ],
+    "classmap": [
+      "database/seeds",
+      "database/factories"
+    ]
+  },
+  "require": {
+    "nesbot/carbon": "^2.41"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.4"
+  }
+}
