@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Archivo o clase que responde cuando llegamos a esa ruta */
+
+/* Route::get('/', function () {
+    return view('welcome'); // va directo a resources/views/welcome.blade.php
+}); */
+
+Route::get('/', 'UserController@index');
+
+Route::post('users', 'UserController@store')->name('users.store'); // el name para referenciar en las vistas
+
+Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
