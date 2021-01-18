@@ -17,6 +17,34 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 mx-auto">
+              <div class="card border-0 shadow">
+                <div class="card-body">
+                  @if ($errors->any())
+                    <div class="alert alert-danger">
+                      @foreach ($errors->all() as $error)
+                      - {{$error}} <br>
+                      @endforeach
+                    </div>
+                  @endif
+
+                  <form class="row g-4" action="{{ route('users.store')}}" method="POST">
+                    <div class="col-auto">
+                      <input type="text" name="name" class="form-control" placeholder="Nombre..." value="{{old('name')}}">
+                    </div>
+                    <div class="col-auto">
+                      <input type="email" name="email" class="form-control" placeholder="EMail..." value="{{old('email')}}">
+                    </div>
+                    <div class="col-auto">
+                      <input type="password" name="password" class="form-control" placeholder="Contraseña...">
+                    </div>
+                    <div class="col-auto">
+                      @csrf
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
               <table class="table">
                 <thead>
                   <tr>
@@ -28,7 +56,7 @@
                 </thead>
                 <tbody>
                   @foreach ($users as $user)
-                      <tr>
+                      <tr> 
                         <td>{{ $user->id}}</td>
                         <td>{{ $user->name}}</td>
                         <td>{{ $user->email}}</td>
